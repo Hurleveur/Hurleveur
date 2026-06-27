@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hurleveur Docs Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090b0f;
+      --surface: rgba(20, 24, 31, 0.72);
+      --line: rgba(255, 255, 255, 0.12);
+      --text: #ebeff8;
+      --muted: #9aa6ba;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: "Hanken Grotesk", system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1000px 400px at 50% -5%, rgba(41, 78, 176, 0.25) 0%, transparent 55%),
+        linear-gradient(160deg, #080a0e 0%, #0b0e14 40%, #090b10 100%);
+      display: grid;
+      place-items: center;
+      padding: 2rem 1.25rem;
+    }
+
+    main {
+      width: min(1050px, 100%);
+    }
+
+    .hero {
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .hero p {
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-size: 0.72rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .hero h1 {
+      font-family: "Space Grotesk", "Hanken Grotesk", sans-serif;
+      font-size: clamp(1.9rem, 2vw + 1.2rem, 3rem);
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      --card-border: var(--line);
+      --card-shadow: none;
+      --card-border-hover: var(--line);
+      --card-shadow-hover: none;
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      padding: 1.1rem;
+      text-decoration: none;
+      color: inherit;
+      background: var(--surface);
+      backdrop-filter: blur(7px);
+      transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      min-height: 220px;
+      border-color: var(--card-border);
+      box-shadow: var(--card-shadow);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--card-border-hover);
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    .card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .icon {
+      width: 2.3rem;
+      height: 2.3rem;
+      border-radius: 0.7rem;
+      display: grid;
+      place-items: center;
+      font-size: 1.3rem;
+      border: 1px solid currentColor;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .tag {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .card h2 {
+      font-size: 1.25rem;
+      line-height: 1.2;
+      margin-top: 0.1rem;
+    }
+
+    .card p {
+      color: #c4ccda;
+      line-height: 1.6;
+      font-size: 0.96rem;
+      flex: 1;
+    }
+
+    .cta {
+      font-size: 0.84rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: currentColor;
+    }
+
+    .hai {
+      --card-border: rgba(29, 78, 216, 0.48);
+      --card-shadow: 0 8px 28px rgba(29, 78, 216, 0.15);
+      --card-border-hover: rgba(29, 78, 216, 0.82);
+      --card-shadow-hover: 0 12px 32px rgba(29, 78, 216, 0.25);
+      color: #9ec1ff;
+    }
+
+    .compendium {
+      --card-border: rgba(217, 166, 83, 0.45);
+      --card-shadow: 0 8px 28px rgba(179, 133, 62, 0.14);
+      --card-border-hover: rgba(217, 166, 83, 0.8);
+      --card-shadow-hover: 0 12px 32px rgba(179, 133, 62, 0.25);
+      color: #edc883;
+    }
+
+    .manual {
+      --card-border: rgba(212, 168, 83, 0.45);
+      --card-shadow: 0 8px 28px rgba(212, 168, 83, 0.15);
+      --card-border-hover: rgba(212, 168, 83, 0.84);
+      --card-shadow-hover: 0 12px 32px rgba(212, 168, 83, 0.28);
+      color: #f4d6a0;
+      background: linear-gradient(170deg, rgba(21, 19, 17, 0.88) 0%, rgba(16, 15, 15, 0.92) 100%);
+    }
+
+    @media (max-width: 620px) {
+      .hero { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <p>Documentation Gateway</p>
+      <h1>Choose a page to explore</h1>
+    </header>
+
+    <section class="grid">
+      <a class="card hai" href="HAI-OS.html" aria-label="Open HAI OS documentation page">
+        <div class="card-head">
+          <span class="icon" aria-hidden="true">🖥️</span>
+          <span class="tag">System Docs</span>
+        </div>
+        <h2>HAI OS</h2>
+        <p>Clean, modern technical documentation for architecture, modules, flows, and operational details.</p>
+        <span class="cta">Open page →</span>
+      </a>
+
+      <a class="card compendium" href="knowledge-compendium.html" aria-label="Open Human Knowledge Compendium page">
+        <div class="card-head">
+          <span class="icon" aria-hidden="true">📚</span>
+          <span class="tag">Reference Atlas</span>
+        </div>
+        <h2>Human Knowledge Compendium</h2>
+        <p>Dense long-form knowledge library with cataloged sections and a research-first reading structure.</p>
+        <span class="cta">Open page →</span>
+      </a>
+
+      <a class="card manual" href="manual-of-alex.html" aria-label="Open Manual of Alex page">
+        <div class="card-head">
+          <span class="icon" aria-hidden="true">📜</span>
+          <span class="tag">Field Manual</span>
+        </div>
+        <h2>Manual of Alex</h2>
+        <p>Dark, editorial-style manual blending narrative guidance, doctrine, and practical command notes.</p>
+        <span class="cta">Open page →</span>
+      </a>
+    </section>
+  </main>
+</body>
+</html>
